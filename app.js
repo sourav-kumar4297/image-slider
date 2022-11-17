@@ -1,9 +1,8 @@
 const container = document.querySelector(".container");
 const cards = document.querySelector(".cards");
 
-/* keep track of user's mouse down and up */
-let isPressedDown = false;
-/* x horizontal space of cursor from inner container */
+ 
+ 
 let cursorXSpace;
 
 container.addEventListener("mousedown", (e) => {
@@ -37,3 +36,37 @@ function boundCards() {
     cards.style.left = `-${cards_rect.width - container_rect.width}px`;
   }
 }
+
+
+
+//Download the file
+
+function DownloadFile(fileName) {
+   
+  var url = "Files/" + fileName;
+
+ 
+  var req = new XMLHttpRequest();
+  req.open("GET", url, true);
+  req.responseType = "blob";
+  req.onload = function () {
+     
+      var blob = new Blob([req.response], { type: "application/octetstream" });
+
+    
+      var isIE = false || !!document.documentMode;
+      if (isIE) {
+          window.navigator.msSaveBlob(blob, fileName);
+      } else {
+          var url = window.URL || window.webkitURL;
+          link = url.createObjectURL(blob);
+          var a = document.createElement("a");
+          a.setAttribute("download", fileName);
+          a.setAttribute("href", link);
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+      }
+  };
+  req.send();
+};

@@ -12,21 +12,21 @@ body {
   align-items: center;
 }
 
-/* global */
+
 img {
   width: 100%;
 }
 
  
 
-/* container and cards */
+
 .container {
   position: relative;
   width: 1000px;
   height: 400px;
   overflow: hidden;
   cursor: grab;
-  /* border-top: 10px solid #f00; */
+  
 }
 
 .cards {
@@ -37,7 +37,7 @@ img {
   grid-template-columns: repeat(6, 300px);
   grid-gap: 50px;
   pointer-events: none;
-  /* border-bottom: 10px solid #00f; */
+  
 }
 
 .card {
@@ -47,3 +47,10 @@ img {
   box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
 }
  
+
+input{
+  display: block;
+  height: 3rem;
+   padding: .5rem;
+   margin: 5rem;
+}
